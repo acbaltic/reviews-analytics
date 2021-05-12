@@ -31,3 +31,19 @@ for d in data:
 print('一共有', len(new), '筆留言長度小於100')
 '''
 
+# 對清單list的指定文字內容之篩選
+'''
+data = []
+count = 0
+with open('reviews.txt', 'r') as f:
+    for line in f:
+        data.append(line)
+
+good = []
+for d in data:
+    if 'good' in d:
+        good.append(d)
+print('一共有', len(good), '筆留言包含 good')
+print(good[10])
+'''
+
