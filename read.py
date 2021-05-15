@@ -1,5 +1,5 @@
 # 讀取資料並存入清單list
-'''
+
 data = []
 count = 0
 with open('reviews.txt', 'r') as f:
@@ -10,6 +10,36 @@ with open('reviews.txt', 'r') as f:
             print(len(data))
 print('檔案讀取完了， 總共有', len(data), '筆資料')
 
+print(data[0])
+
+# 文字記數
+wc = {}  # word_count
+for d in data:  # 巢狀迴圈處理字典
+    words = d.split()  # 預設值為空字串
+    for word in words:
+        if word in wc:
+            wc[word] += 1
+        else:
+            wc[word] = 1
+
+for word in wc:
+    if wc[word] > 1000000:
+        print(word, wc[word])
+
+# print(len(wc))
+# print(wc['Andy'])
+
+while True:
+    word = input('請問你想查什麼字？')
+    if word == 'q':
+        print('感謝使用本查詢!')
+        break
+    if word in wc:
+        print(word, '出現的次數：', wc[word])
+    else:
+        print(word, '這個字沒有出現過喔!')
+
+'''
 sum_len = 0
 for d in data:
     sum_len += len(d)
